@@ -1,0 +1,49 @@
+.LoginContd
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+   
+}
+.LoginDiv
+{
+    background-color: #fff;
+    padding: 2rem 1rem 3rem 1rem;
+    width: 400px;
+    border-radius: 8px;
+}
+.LoginDivimg{
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
+.LoginDivimg img{
+    width: 200px;
+}
+.InputLogin
+{
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.InputLogin label{
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+.InputLogin input{
+    height: 35px;
+    border:1px solid #cbd5e1 ;
+    border-radius: 5px;
+}
+.InputLoginpass input{
+    margin-right: 0.5rem;
+}
+.InputLoginpass
+{
+    margin-bottom: 1rem;
+}
+.wronCred
+{
+    color: red;
+}

@@ -1,24 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { useState, createContext ,useEffect} from "react";
+import Pages from './Routes/Routes';
+export const UserContext = createContext()
 function App() {
+  const [themes, settheme] = useState("Light");
+  const [like, setlike] = useState([]);
+  const [dislike, setdislike] = useState([]);
+  const [hasBannerCross, sethasBannerCross] = useState(true)
+  const [savedVideo, setsavedVideo] = useState([]);
+  const handletheme=()=>{
+    if(themes==="Light")
+    settheme("Dark");
+    else
+    settheme("Light");
+  }
+  const [status,setstatus]=useState("");
+  useEffect(() => {
+    console.log("came savedVideo context",savedVideo)
+  }, [savedVideo])
+  const providerValue = {
+    themes,
+    settheme,
+    handletheme,
+    status,
+    setstatus,
+    like,
+    dislike,
+    savedVideo,
+    setlike,
+    setdislike,
+    setsavedVideo,
+    hasBannerCross,
+    sethasBannerCross
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserContext.Provider value={providerValue}>
+      <div style={{backgroundColor: themes==='Dark' && 'rgb(49, 49, 49)'}}>
+       <Pages />
+       </div>
+     </UserContext.Provider>
   );
 }
 
